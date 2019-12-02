@@ -1,5 +1,3 @@
-function run_2_1() { AdventOfCode2019_02_1.run(); }
-
 namespace AdventOfCode2019_02_1
 {
 	const DAY     = 2;

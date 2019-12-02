@@ -23,3 +23,24 @@ namespace AdventOfCode
 		});
 	}
 }
+interface Window { [key:string]: any; }
+
+window.onload = () => 
+{
+	for(let day=1; day <= 25; day++)
+	{
+		for (let problem=1; problem<=2; problem++)
+		{
+			let elem = document.querySelector(`#day${day.toString().padStart(2, "0")} .challenge_${problem}`) as HTMLDivElement;
+			if (elem != null)
+			{
+				elem.onclick = () => 
+				{
+					let ref = `AdventOfCode2019_${day.toString().padStart(2, "0")}_${problem}`;
+					 window[ref].run();
+				};
+				//console.log(`Registered click handler for ${day}:${problem}`)
+			}
+		}
+	}
+};

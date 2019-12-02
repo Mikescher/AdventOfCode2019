@@ -9,15 +9,15 @@ namespace AdventOfCode
 
 	export function getInput(num: number)
 	{
-		return new Promise<string|null>((resolve, reject) => 
+		return new Promise<string>((resolve, reject) => 
 		{
 			const xhr = new XMLHttpRequest();
 			xhr.overrideMimeType("text/plain");
 			xhr.open("GET", `${num.toString().padStart(2, "0")}_input.txt`);
 
 			xhr.onload    = evt => { resolve(xhr.responseText); };
-			xhr.onerror   = evt => { resolve(null); };
-			xhr.ontimeout = evt => { resolve(null); };
+			xhr.onerror   = evt => { resolve(""); };
+			xhr.ontimeout = evt => { resolve(""); };
 
 			xhr.send();
 		});

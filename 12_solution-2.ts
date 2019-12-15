@@ -22,7 +22,7 @@ namespace AdventOfCode2019_12_2
 			let moons1d = moons.map(m => Moon1D.createFromMoon(m, dim));
 
 			const cycle = getCycleTime(moons1d);
-			console.log(`CycleTime Dim[${dim}] ==> ${cycle}`);
+			AdventOfCode.outputConsole(`CycleTime Dim[${dim}] ==> ${cycle}`);
 
 			cycletimes.push(cycle);
 		}

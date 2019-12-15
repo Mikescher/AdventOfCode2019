@@ -31,8 +31,8 @@ namespace AdventOfCode2019_14_1
 			missing = missing.filter(p => p[0]>0);
 			surplus = surplus.filter(p => p[0]>0);
 
-			console.log("missing: [" + missing.map(p => p[0]+"|"+p[1]).reduce((a,b)=>a+"  "+b, "")+"]");
-			console.log("surplus: [" + surplus.map(p => p[0]+"|"+p[1]).reduce((a,b)=>a+"  "+b, "")+"]");
+			AdventOfCode.outputConsole("missing: [" + missing.map(p => p[0]+"|"+p[1]).reduce((a,b)=>a+"  "+b, "")+"]");
+			AdventOfCode.outputConsole("surplus: [" + surplus.map(p => p[0]+"|"+p[1]).reduce((a,b)=>a+"  "+b, "")+"]");
 
 			let target = missing.pop();
 			if (target === undefined) throw "undef??";
@@ -68,7 +68,7 @@ namespace AdventOfCode2019_14_1
 
 			let incredentials = Object.assign([], recipe[1]);
 
-			console.log(recipe[2]);
+			AdventOfCode.outputConsole(recipe[2]);
 
 			for(let icrd of incredentials)
 			{
@@ -106,11 +106,11 @@ namespace AdventOfCode2019_14_1
 					if (!found) missing.push([incred_count, incred_name]);
 				}
 
-				console.log("");
+				AdventOfCode.outputConsole("");
 			}
 		}
 
-		console.log(missing);
+		AdventOfCode.outputConsole(missing);
 
 		AdventOfCode.output(DAY, PROBLEM, missing[0][0].toString());
 	}

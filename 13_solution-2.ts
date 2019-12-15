@@ -68,10 +68,7 @@ namespace AdventOfCode2019_13_2
 
 				const ddd = Math.sign(ball-paddle);
 
-				//console.clear();
-				//console.log(str);
-				//console.log(ddd + "  (("+score+"))");
-				//console.log();
+				await AdventOfCode.outputIntermed(str+"\n\n  (("+score+"))")
 
 				rnr.inputqueue.push(ddd);
 			}
@@ -180,7 +177,7 @@ namespace AdventOfCode2019_13_2
 			{
 				const p0 = cmd.getParameter(this, 0);
 				this.output.push(p0);
-				//console.log("# " + p0);
+				//AdventOfCode.outputConsole("# " + p0);
 
 				this.incInstrPtr(cmd);
 

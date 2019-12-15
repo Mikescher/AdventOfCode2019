@@ -16,8 +16,7 @@ namespace AdventOfCode2019_15_2
 
 		let d = Direction.North;
 
-		AdventOfCode.outputIntermed(wm.dump());
-		await new Promise(resolve => setTimeout(resolve, 0));
+		await AdventOfCode.outputIntermed(wm.dump());
 
 		for(;;)
 		{
@@ -59,17 +58,16 @@ namespace AdventOfCode2019_15_2
 
 			rnr.output = [];
 
-			AdventOfCode.outputIntermed(wm.dump());
-			await new Promise(resolve => setTimeout(resolve, 0));
+			await AdventOfCode.outputIntermed(wm.dump());
 
 			if (wm.unknowns.length === 0) break;
 		}
 
-		AdventOfCode.outputIntermed(wm.dump());
+		await AdventOfCode.outputIntermed(wm.dump());
 
 		const time = await wm.calcFillTime();
 
-        AdventOfCode.output(DAY, PROBLEM, time.toString());
+		AdventOfCode.output(DAY, PROBLEM, time.toString());
 	}
 
 	function turn_right(d: Direction): Direction
@@ -177,8 +175,7 @@ namespace AdventOfCode2019_15_2
 					if (this.isfree([x, y+1])) next.push([x, y+1]);
 				}
 
-				AdventOfCode.outputIntermed(this.dump4(oxy_map));
-				await new Promise(resolve => setTimeout(resolve, 0));
+				await AdventOfCode.outputIntermed(this.dump4(oxy_map));
 
 				if (updates === 0) return counter;
 
@@ -225,8 +222,7 @@ namespace AdventOfCode2019_15_2
 				let d_new = Math.min(d_n, d_e, d_s, d_w);
 				if (d_new !== Number.MAX_SAFE_INTEGER) d_new++;
 
-				AdventOfCode.outputIntermed(this.dump2(distance_map, updates));
-				await new Promise(resolve => setTimeout(resolve, 0));
+				await AdventOfCode.outputIntermed(this.dump2(distance_map, updates));
 
 				if (d_curr <= d_new) continue;
 
@@ -238,8 +234,7 @@ namespace AdventOfCode2019_15_2
 				updates.unshift([x, y-1]);
 			}
 
-			AdventOfCode.outputIntermed(this.dump2(distance_map, updates));
-
+			await AdventOfCode.outputIntermed(this.dump2(distance_map, updates));
 
 			let tpos = this.target_pos;
 			for(;;)
@@ -572,7 +567,7 @@ namespace AdventOfCode2019_15_2
 			{
 				const p0 = cmd.getParameter(this, 0);
 				this.output.push(p0);
-				//console.log("# " + p0);
+				//AdventOfCode.outputConsole("# " + p0);
 
 				this.incInstrPtr(cmd);
 

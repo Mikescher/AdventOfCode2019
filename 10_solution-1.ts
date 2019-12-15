@@ -41,7 +41,7 @@ namespace AdventOfCode2019_10_1
 								.sort((a, b) => a - b).filter((v,i,s) => s.indexOf(v)===i) // unique
 								.length;
 
-			console.log(`${((count>ac_max)?"+":" ")}[${cx}|${cy}]  :=  ${count}`);
+			AdventOfCode.outputConsole(`${((count>ac_max)?"+":" ")}[${cx}|${cy}]  :=  ${count}`);
 
 			if (count>ac_max) ac_max=count;
 		}

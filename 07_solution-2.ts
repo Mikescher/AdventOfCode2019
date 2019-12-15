@@ -26,7 +26,7 @@ namespace AdventOfCode2019_07_2
 			const r = evalConfiguration(code, a1,a2,a3,a4,a5)
 			
 			outputs.push(r);
-			console.log([a1,a2,a3,a4,a5].toString() + "  -->  " + r);
+			AdventOfCode.outputConsole([a1,a2,a3,a4,a5].toString() + "  -->  " + r);
 		}
 
 		const max = outputs.sort((a, b) => a - b).reverse()[0];

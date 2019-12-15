@@ -28,14 +28,14 @@ namespace AdventOfCode2019_14_2
 		let lower = 1;
 		let upper = 1_000_000_000_000;
 
-		console.log(`Range: [${lower}  |  ${upper}]`);
+		AdventOfCode.outputConsole(`Range: [${lower}  |  ${upper}]`);
 
 		while(upper-lower>1)
 		{
 			const f = Math.floor((upper+lower) / 2);
 			const o = calcOreRequirement(recipes, f);
 
-			console.log(`${o} ORE  =>  ${f} FUEL`);
+			AdventOfCode.outputConsole(`${o} ORE  =>  ${f} FUEL`);
 
 			if (o > target) {
 				upper = f;
@@ -45,7 +45,7 @@ namespace AdventOfCode2019_14_2
 				upper = lower = f; // jackpot
 			}
 
-			console.log(`Range: [${lower}  |  ${upper}]`);
+			AdventOfCode.outputConsole(`Range: [${lower}  |  ${upper}]`);
 		}
 
 		AdventOfCode.output(DAY, PROBLEM, lower.toString());
@@ -62,8 +62,8 @@ namespace AdventOfCode2019_14_2
 			missing = missing.filter(p => p[0]>0);
 			surplus = surplus.filter(p => p[0]>0);
 
-			//console.log("missing: [" + missing.map(p => p[0]+"|"+p[1]).reduce((a,b)=>a+"  "+b, "")+"]");
-			//console.log("surplus: [" + surplus.map(p => p[0]+"|"+p[1]).reduce((a,b)=>a+"  "+b, "")+"]");
+			//AdventOfCode.outputConsole("missing: [" + missing.map(p => p[0]+"|"+p[1]).reduce((a,b)=>a+"  "+b, "")+"]");
+			//AdventOfCode.outputConsole("surplus: [" + surplus.map(p => p[0]+"|"+p[1]).reduce((a,b)=>a+"  "+b, "")+"]");
 
 			let target = missing.pop();
 			if (target === undefined) throw "undef??";
@@ -107,7 +107,7 @@ namespace AdventOfCode2019_14_2
 
 			let incredentials = Object.assign([], recipe[1]);
 
-			//console.log(recipe[2]);
+			//AdventOfCode.outputConsole(recipe[2]);
 
 			for(let icrd of incredentials)
 			{
@@ -145,7 +145,7 @@ namespace AdventOfCode2019_14_2
 					if (!found) missing.push([incred_count, incred_name]);
 				}
 
-				//console.log("");
+				//AdventOfCode.outputConsole("");
 			}
 		}
 

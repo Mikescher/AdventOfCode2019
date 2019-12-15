@@ -15,7 +15,7 @@ namespace AdventOfCode2019_13_1
 
 		let tiles = [];
 
-		console.log(rnr.output);
+		AdventOfCode.outputConsole(rnr.output);
 
 		for(let i=0; i<rnr.output.length; i+=3)
 		{
@@ -108,7 +108,7 @@ namespace AdventOfCode2019_13_1
 			{
 				const p0 = cmd.getParameter(this, 0);
 				this.output.push(p0);
-				//console.log("# " + p0);
+				//AdventOfCode.outputConsole("# " + p0);
 
 				this.incInstrPtr(cmd);
 

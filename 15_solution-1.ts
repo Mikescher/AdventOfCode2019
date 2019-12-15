@@ -16,8 +16,7 @@ namespace AdventOfCode2019_15_1
 
 		let d = Direction.North;
 
-		AdventOfCode.outputIntermed(wm.dump());
-		await new Promise(resolve => setTimeout(resolve, 0));
+		await AdventOfCode.outputIntermed(wm.dump());
 
 		for(;;)
 		{
@@ -59,19 +58,18 @@ namespace AdventOfCode2019_15_1
 
 			rnr.output = [];
 
-			AdventOfCode.outputIntermed(wm.dump());
-			await new Promise(resolve => setTimeout(resolve, 0));
+			await AdventOfCode.outputIntermed(wm.dump());
 
 			if (wm.unknowns.length === 0) break;
 		}
 
-		AdventOfCode.outputIntermed(wm.dump());
+		await AdventOfCode.outputIntermed(wm.dump());
 
 		const dist = await wm.calcDistance();
 
-		AdventOfCode.outputIntermed(wm.dump3());
+		await AdventOfCode.outputIntermed(wm.dump3());
 
-        AdventOfCode.output(DAY, PROBLEM, dist.toString());
+		AdventOfCode.output(DAY, PROBLEM, dist.toString());
 	}
 
 	function turn_right(d: Direction): Direction
@@ -185,8 +183,7 @@ namespace AdventOfCode2019_15_1
 				let d_new = Math.min(d_n, d_e, d_s, d_w);
 				if (d_new !== Number.MAX_SAFE_INTEGER) d_new++;
 
-				AdventOfCode.outputIntermed(this.dump2(distance_map, updates));
-				await new Promise(resolve => setTimeout(resolve, 0));
+				await AdventOfCode.outputIntermed(this.dump2(distance_map, updates));
 
 				if (d_curr <= d_new) continue;
 
@@ -198,7 +195,7 @@ namespace AdventOfCode2019_15_1
 				updates.unshift([x, y-1]);
 			}
 
-			AdventOfCode.outputIntermed(this.dump2(distance_map, updates));
+			await AdventOfCode.outputIntermed(this.dump2(distance_map, updates));
 
 
 			let tpos = this.target_pos;
@@ -500,7 +497,7 @@ namespace AdventOfCode2019_15_1
 			{
 				const p0 = cmd.getParameter(this, 0);
 				this.output.push(p0);
-				//console.log("# " + p0);
+				//AdventOfCode.outputConsole("# " + p0);
 
 				this.incInstrPtr(cmd);
 

@@ -44,7 +44,7 @@ namespace AdventOfCode2019_11_2
 
 			const newcol = rnr.output[0];
 			const newdir = rnr.output[1];
-			//console.log(`[${newcol}|${((newcol==0)?'.':'#')}] | [${newdir}|${((newdir==0)?'L':'R')}]`);
+			//AdventOfCode.outputConsole(`[${newcol}|${((newcol==0)?'.':'#')}] | [${newdir}|${((newdir==0)?'L':'R')}]`);
 			rnr.output = [];
 
 			map[y*10000+x] = newcol;
@@ -80,7 +80,7 @@ namespace AdventOfCode2019_11_2
 			}
 			str += "\n";
 		}
-		console.log(str);
+		await AdventOfCode.outputIntermed(str);
 
 		AdventOfCode.output(DAY, PROBLEM, "LBJHEKLH");
 	}
@@ -166,7 +166,7 @@ namespace AdventOfCode2019_11_2
 			{
 				const p0 = cmd.getParameter(this, 0);
 				this.output.push(p0);
-				//console.log("# " + p0);
+				//AdventOfCode.outputConsole("# " + p0);
 
 				this.incInstrPtr(cmd);
 

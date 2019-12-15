@@ -46,7 +46,7 @@ namespace AdventOfCode2019_10_2
 			if (count>ac_max) { ac_max=count; ac_x=cx; ac_y=cy; }
 		}
 
-		console.log(`[${ac_x}|${ac_y}]  :=  ${ac_max}`);
+		AdventOfCode.outputConsole(`[${ac_x}|${ac_y}]  :=  ${ac_max}`);
 
 		//-------------------------
 
@@ -67,7 +67,7 @@ namespace AdventOfCode2019_10_2
 			if (asteroids[i][6] === 0) continue;
 			if (ldx==asteroids[i][2] && ldy==asteroids[i][3]) continue;
 
-			console.log(`${idx} => [${asteroids[i][7]}|${asteroids[i][8]}]   /[${asteroids[i][0]}|${asteroids[i][1]}] @ ${asteroids[i][5]}:${asteroids[i][4]}`);
+			AdventOfCode.outputConsole(`${idx} => [${asteroids[i][7]}|${asteroids[i][8]}]   /[${asteroids[i][0]}|${asteroids[i][1]}] @ ${asteroids[i][5]}:${asteroids[i][4]}`);
 
 			ldx = asteroids[i][2];
 			ldy = asteroids[i][3];

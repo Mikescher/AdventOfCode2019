@@ -31,9 +31,9 @@ namespace AdventOfCode2019_12_1
 
 	function output(i: number, moons: Moon[])
 	{
-		console.log("========  "+i+"  ========");
-		for(let m of moons) console.log(m.toString());
-		console.log();
+		AdventOfCode.outputConsole("========  "+i+"  ========");
+		for(let m of moons) AdventOfCode.outputConsole(m.toString());
+		AdventOfCode.outputConsole();
 	}
 
 	function step(moons: Moon[])

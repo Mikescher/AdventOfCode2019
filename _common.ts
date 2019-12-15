@@ -7,6 +7,12 @@ namespace AdventOfCode
 		elem.innerHTML = txt;
 	}
 
+	export function outputIntermed(txt: string)
+	{
+		let elem = document.querySelector(`#intermed_output`) as HTMLDivElement;
+		elem.innerText = txt;
+	}
+
 	export function getInput(num: number)
 	{
 		return new Promise<string>((resolve, reject) => 

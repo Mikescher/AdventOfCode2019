@@ -41,6 +41,20 @@ namespace AdventOfCode
 		await new Promise(resolve => setTimeout(resolve, n));
 	}
 
+	export async function sleepIfIntermed(n: number)
+	{
+		if (!Config.immediateOutputEnabled) return;
+		
+		await new Promise(resolve => setTimeout(resolve, n));
+	}
+
+	export async function sleepIfConsole(n: number)
+	{
+		if (!Config.consoleOutputEnabled) return;
+		
+		await new Promise(resolve => setTimeout(resolve, n));
+	}
+
 	export function getInput(num: number)
 	{
 		return new Promise<string>((resolve, _) => 

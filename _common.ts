@@ -29,6 +29,22 @@ namespace AdventOfCode
 		await sleep(0);
 	}
 
+	export async function clearIntermed()
+	{
+		let elem = document.querySelector(`#intermed_output`) as HTMLDivElement;
+		elem.classList.add("hidden");
+		elem.innerText = "";
+		elem.setAttribute("style", ""); // reset to default
+
+		await sleep(0);
+	}
+
+	export function setIntermedOutputSize(fontsize: string)
+	{
+		let elem = document.querySelector(`#intermed_output`) as HTMLDivElement;
+		elem.setAttribute("style", "font-size: "+fontsize);
+	}
+
 	export function outputConsole(txt?: any)
 	{
 		if (!Config.consoleOutputEnabled) return;
@@ -90,6 +106,8 @@ window.onload = () =>
 					await AdventOfCode.sleep(50);
 					try 
 					{
+						await AdventOfCode.clearIntermed();
+
 						AdventOfCode.Config.is_running = true;
 						let ref = `AdventOfCode2019_${day.toString().padStart(2, "0")}_${problem}`;
 						await window[ref].run();

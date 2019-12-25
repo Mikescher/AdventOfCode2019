@@ -15,9 +15,12 @@
 		.button { border: 1px solid #888; border-radius: 0.25em; background-color: #444; color: #CCC; padding: 0.05em 0.25em; text-decoration: none; }
 		.div_btns { align-self: stretch; justify-content: space-around; }
 		.span_solution { background-color: #BBB; min-width: 12em; margin: 0 1em; padding: 0 3px; align-self: stretch; }
-		#intermed_output { font-size: 0.75vw; white-space:pre; align-self: stretch; overflow:auto; background-color: #BBB; color: #000; min-height: 100%; margin: 0.2vw; font-family: monospace; flex-grow: 1; border: 1px solid #888; }
-		.hidden { display: none; }
+		#additional { align-self: stretch; min-height: 100%; margin: 0.2vw; flex-grow: 1; display: flex; flex-direction: column; }
+		#intermed_output { font-size: 0.75vw; white-space:pre; align-self: stretch; overflow:auto; background-color: #BBB; color: #000; font-family: monospace; flex-grow: 1; border: 1px solid #888; }
+		#directinput { margin-top: 0.2vw; background-color: #BBB; border: 1px solid #888; font-size: 1vw; padding: 0.2vw; }
+		.hidden { display: none !important; }
 		.btnOn { background-color: #009F6B; color: #FFF;  }
+		.invisible { visibility: hidden; }
 	</style>
 </head>
 <body>
@@ -224,16 +227,19 @@
 				<div class="span_solution solution_2"></div>
 			</div>
 
-			<div class="div_day hidden" id="day25">
+			<div class="div_day" id="day25">
 				<span class="span_day">Day 25:</span>
 				<a class="span_challenge challenge_1" href="javascript:void(0)">Part One</a>
 				<div class="span_solution solution_1"></div>
-				<a class="span_challenge challenge_2" href="javascript:void(0)">Part Two</a>
-				<div class="span_solution solution_2"></div>
+				<a class="span_challenge challenge_2 invisible" href="javascript:void(0)">Part Two</a>
+				<div class="span_solution solution_2 invisible"></div>
 			</div>
 		</div>
 
-		<div id="intermed_output" class="hidden"></div>
+		<div id="additional" class="hidden">
+			<div id="intermed_output"></div>
+			<input id="directinput" class="hidden"></input>
+		</div>
 	</div>
 
 	<script src="js/_common.js" type="text/javascript"></script>

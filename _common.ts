@@ -7,7 +7,23 @@ namespace AdventOfCode
 		public static immediateOutputEnabled: boolean = true;
 		public static finalOutputEnabled:     boolean = true;
 
+		public static lastInputIsEnter: boolean = false;
+
 		public static is_running: boolean = false;
+	}
+
+	export function isLastInputEnter(): boolean { return Config.lastInputIsEnter; }
+
+	export function getAndClearInput(): string
+	{
+		const inputElement = document.getElementById(`directinput`) as HTMLInputElement;
+
+		let v = inputElement.value;
+		
+		inputElement.value = "";
+		Config.lastInputIsEnter = false;
+
+		return v;
 	}
 
 	export function output(day: number, problem: number, txt: string)
@@ -22,8 +38,10 @@ namespace AdventOfCode
 	{
 		if (!Config.immediateOutputEnabled) return;
 
+		let elem2 = document.querySelector(`#additional`) as HTMLDivElement;
+		elem2.classList.remove("hidden");
+
 		let elem = document.querySelector(`#intermed_output`) as HTMLDivElement;
-		elem.classList.remove("hidden");
 		elem.innerText = txt;
 
 		await sleep(0);
@@ -31,8 +49,10 @@ namespace AdventOfCode
 
 	export async function clearIntermed()
 	{
+		let elem2 = document.querySelector(`#additional`) as HTMLDivElement;
+		elem2.classList.add("hidden");
+
 		let elem = document.querySelector(`#intermed_output`) as HTMLDivElement;
-		elem.classList.add("hidden");
 		elem.innerText = "";
 		elem.setAttribute("style", ""); // reset to default
 
@@ -43,6 +63,13 @@ namespace AdventOfCode
 	{
 		let elem = document.querySelector(`#intermed_output`) as HTMLDivElement;
 		elem.setAttribute("style", "font-size: "+fontsize);
+	}
+
+	export function showIntermedInput(displ: boolean)
+	{
+		let elem = document.querySelector(`#directinput`) as HTMLDivElement;
+		if (displ) elem.classList.remove("hidden");
+		else elem.classList.add("hidden");
 	}
 
 	export function outputConsole(txt?: any)
@@ -107,6 +134,7 @@ window.onload = () =>
 					try 
 					{
 						await AdventOfCode.clearIntermed();
+						await AdventOfCode.showIntermedInput(false);
 
 						AdventOfCode.Config.is_running = true;
 						let ref = `AdventOfCode2019_${day.toString().padStart(2, "0")}_${problem}`;
@@ -165,5 +193,14 @@ window.onload = () =>
 			AdventOfCode.Config.finalOutputEnabled = true;
 		}
 	}
+
+	const inputElement = document.getElementById(`directinput`) as HTMLInputElement;
+	inputElement.addEventListener("keyup", function(event) {
+		if (event.key === "Enter") {
+			AdventOfCode.Config.lastInputIsEnter = true;
+		} else {
+			AdventOfCode.Config.lastInputIsEnter = false;
+		}
+	});
 
 };

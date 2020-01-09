@@ -1,0 +1,27 @@
+"use strict";
+var AdventOfCode2019_02_1;
+(function (AdventOfCode2019_02_1) {
+    const DAY = 2;
+    const PROBLEM = 1;
+    async function run() {
+        let input = await AdventOfCode.getInput(DAY);
+        let automata = input.split(",").map(p => parseInt(p));
+        automata[1] = 12;
+        automata[2] = 2;
+        for (let i = 0; i < automata.length; i += 4) {
+            const op = automata[i + 0];
+            const arg1 = automata[automata[i + 1]];
+            const arg2 = automata[automata[i + 2]];
+            const dest = automata[i + 3];
+            AdventOfCode.outputConsole("[" + dest + "] <- " + arg1 + " {" + op + "} " + arg2);
+            if (op == 1)
+                automata[dest] = arg1 + arg2;
+            else if (op == 2)
+                automata[dest] = arg1 * arg2;
+            else
+                break;
+        }
+        AdventOfCode.output(DAY, PROBLEM, automata[0].toString());
+    }
+    AdventOfCode2019_02_1.run = run;
+})(AdventOfCode2019_02_1 || (AdventOfCode2019_02_1 = {}));
